@@ -52,3 +52,22 @@ console.log("match:", verify);
 // output "true" if match else "false":
 // match: true
 ```
+
+## Example in React
+
+```javascript
+import { generateKey } from "ed25519-keys";
+
+const App = () => {
+  const key = generateKey(32);
+
+  return (
+    <div>
+      <div>PublicKey: {key.publicKey}</div>
+      <div>PrivateKey: {key.privateKey}</div>
+    </div>
+  );
+};
+
+export default App;
+```
