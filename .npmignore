@@ -1,0 +1,3 @@
+yarn-*.log
+coverage
+node_modules

@@ -1,0 +1,33 @@
+{
+  "name": "ed25519-keys",
+  "description": "npm package provide ed25519 key generation, signing and verification",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Sebastian Korotkiewicz",
+  "license": "MIT",
+  "keywords": [
+    "ed25519",
+    "key",
+    "generation",
+    "signing",
+    "verification"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skorotkiewicz/ed25519-keys.git"
+  },
+  "bugs": {
+    "url": "https://github.com/skorotkiewicz/ed25519-keys/issues"
+  },
+  "homepage": "https://github.com/skorotkiewicz/ed25519-keys#readme",
+  "scripts": {
+    "test": "jest",
+    "prepare": "yarn test"
+  },
+  "dependencies": {
+    "elliptic": "^6.5.4"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}
