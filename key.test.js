@@ -1,4 +1,9 @@
-const { generateKey, signMessage, verifyMessage } = require("./index");
+const {
+  generateKey,
+  signMessage,
+  verifyMessage,
+  privateToPublic,
+} = require("./index");
 
 const message = "Hello World!";
 let publicKey;
@@ -9,6 +14,12 @@ test("generate key", () => {
     publicKey = key.publicKey;
     privateKey = key.privateKey;
     expect(key).toBeDefined();
+  });
+});
+
+test("get publicKey from privateKey", () => {
+  privateToPublic(privateKey).then((pubKey) => {
+    expect(pubKey).toBeDefined();
   });
 });
 

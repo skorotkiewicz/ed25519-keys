@@ -68,4 +68,16 @@ const verifyMessage = (message, signature, publicKey) => {
   return null;
 };
 
-module.exports = { generateKey, signMessage, verifyMessage };
+const privateToPublic = (privateKey) => {
+  if (privateKey) {
+    return new Promise((resolve, reject) => {
+      const key = ec.keyFromSecret(privateKey);
+      const publicKey = toHex(key.getPublic());
+      resolve(publicKey);
+    });
+  }
+
+  return null;
+};
+
+module.exports = { generateKey, signMessage, verifyMessage, privateToPublic };

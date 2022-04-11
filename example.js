@@ -1,4 +1,9 @@
-const { generateKey, signMessage, verifyMessage } = require("./index");
+const {
+  generateKey,
+  signMessage,
+  verifyMessage,
+  privateToPublic,
+} = require("./index");
 
 const message = "Hello World!";
 let publicKey;
@@ -8,6 +13,10 @@ generateKey(5).then((key) => {
   publicKey = key.publicKey;
   privateKey = key.privateKey;
   console.log(key);
+
+  privateToPublic(privateKey).then((pubKey) => {
+    console.log("pubKey:", pubKey);
+  });
 
   signMessage(message, privateKey).then((signature) => {
     console.log("signature:", signature);
