@@ -13,7 +13,12 @@ $ yarn add ed25519-keys
 ## Import
 
 ```javascript
-const { generateKey, signMessage, verifyMessage } = require("ed25519-keys");
+const {
+  generateKey,
+  signMessage,
+  verifyMessage,
+  privateToPublic,
+} = require("ed25519-keys");
 ```
 
 ## Usage
@@ -56,10 +61,26 @@ verifyMessage(message, signature, publicKey).then((verify) => {
 // match: true
 ```
 
+Get publicKey from privateKey
+
+```javascript
+privateToPublic(privateKey).then((pubKey) => {
+  console.log("pubKey:", pubKey);
+});
+
+// output:
+// pubKey: 10E5DFEA8A0B47C2B4F339DEB3EE0B013EA0FFDB235E2BD33D8DBF066D96A1CE
+```
+
 ## Example in Node
 
 ```javascript
-const { generateKey, signMessage, verifyMessage } = require("ed25519-keys");
+const {
+  generateKey,
+  signMessage,
+  verifyMessage,
+  privateToPublic,
+} = require("ed25519-keys");
 
 const message = "Hello World!";
 let publicKey;
