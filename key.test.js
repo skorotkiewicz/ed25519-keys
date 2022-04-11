@@ -1,21 +1,27 @@
 const { generateKey, signMessage, verifyMessage } = require("./index");
 
 const message = "Hello World!";
-const key = generateKey(5);
-const publicKey = key.publicKey;
-const privateKey = key.privateKey;
+let publicKey;
+let privateKey;
 
 test("generate key", () => {
-  expect(key).toBeDefined();
+  generateKey(5).then((key) => {
+    publicKey = key.publicKey;
+    privateKey = key.privateKey;
+    expect(key).toBeDefined();
+  });
 });
 
 test("sign message", () => {
-  const signature = signMessage(message, privateKey);
-  expect(signature).toBeDefined();
+  signMessage(message, privateKey).then((signature) => {
+    expect(signature).toBeDefined();
+  });
 });
 
 test("verify message", () => {
-  const signature = signMessage(message, privateKey);
-  const verify = verifyMessage(message, signature, publicKey);
-  expect(verify).toBeTruthy();
+  signMessage(message, privateKey).then((signature) => {
+    verifyMessage(message, signature, publicKey).then((verify) => {
+      expect(verify).toBeTruthy();
+    });
+  });
 });

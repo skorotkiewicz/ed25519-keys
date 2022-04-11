@@ -1,14 +1,19 @@
 const { generateKey, signMessage, verifyMessage } = require("./index");
 
 const message = "Hello World!";
+let publicKey;
+let privateKey;
 
-const key = generateKey(5);
-const publicKey = key.publicKey;
-const privateKey = key.privateKey;
-console.log(key);
+generateKey(5).then((key) => {
+  publicKey = key.publicKey;
+  privateKey = key.privateKey;
+  console.log(key);
 
-const signature = signMessage(message, privateKey);
-console.log("signature:", signature);
+  signMessage(message, privateKey).then((signature) => {
+    console.log("signature:", signature);
 
-const verify = verifyMessage(message, signature, publicKey);
-console.log("match:", verify);
+    verifyMessage(message, signature, publicKey).then((verify) => {
+      console.log("match:", verify);
+    });
+  });
+});

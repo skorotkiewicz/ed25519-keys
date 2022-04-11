@@ -1,7 +1,7 @@
 {
   "name": "ed25519-keys",
   "description": "npm package provide ed25519 key generation, signing and verification",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "index.js",
   "author": "Sebastian Korotkiewicz",
   "license": "MIT",
